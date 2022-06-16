@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>UIRenameRegEx</class>
+ <widget class="QWidget" name="UIRenameRegEx">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>817</width>
+    <height>220</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="5" column="1">
+    <widget class="IComQLineEdit" name="m_pqleInsertAtStart">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="0">
+    <widget class="QLabel" name="label">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="text">
+      <string>Regular Expression</string>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="2">
+    <widget class="QCheckBox" name="m_pqcbInsertAtEnd">
+     <property name="text">
+      <string>Insert At End</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0">
+    <widget class="QCheckBox" name="m_pqcbReplaceName">
+     <property name="text">
+      <string>Replace Name With</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="2">
+    <widget class="QLabel" name="m_pqlblInsertTheTextAtPos">
+     <property name="text">
+      <string>At Position</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="0">
+    <widget class="QCheckBox" name="m_pqcbReplaceMatchWith">
+     <property name="text">
+      <string>Replace Match With</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="1" colspan="3">
+    <widget class="IComQLineEdit" name="m_pqleReplaceMatchWith">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="1" colspan="3">
+    <widget class="IComQLineEdit" name="m_pqleReplaceName">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="3">
+    <widget class="IComQLineEdit" name="m_pqleInsertAtEnd">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="3">
+    <widget class="IComQLineEdit" name="m_pqleInsertTheTextAtPos">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="0">
+    <widget class="QCheckBox" name="m_pqcbInsertTheText">
+     <property name="text">
+      <string>Insert The Text</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="1">
+    <widget class="IComQLineEdit" name="m_pqleInsertTheText">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="0">
+    <widget class="QCheckBox" name="m_pqcbInsertAtStart">
+     <property name="text">
+      <string>Insert At Start</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="1">
+    <widget class="IComQLineEdit" name="m_pqleRegEx">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="2">
+    <widget class="QCheckBox" name="m_pqcbRegExStartPos">
+     <property name="text">
+      <string>Search Start Pos</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="3">
+    <widget class="IComQLineEdit" name="m_pqleRegExStartPos">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>IComQLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>IComQLineEdit.h</header>
+  </customwidget>
+ </customwidgets>
+ <tabstops>
+  <tabstop>m_pqcbReplaceName</tabstop>
+  <tabstop>m_pqleReplaceName</tabstop>
+  <tabstop>m_pqcbReplaceMatchWith</tabstop>
+  <tabstop>m_pqleReplaceMatchWith</tabstop>
+  <tabstop>m_pqcbInsertTheText</tabstop>
+  <tabstop>m_pqleInsertTheText</tabstop>
+  <tabstop>m_pqleInsertTheTextAtPos</tabstop>
+  <tabstop>m_pqcbInsertAtStart</tabstop>
+  <tabstop>m_pqleInsertAtStart</tabstop>
+  <tabstop>m_pqcbInsertAtEnd</tabstop>
+  <tabstop>m_pqleInsertAtEnd</tabstop>
+ </tabstops>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>m_pqcbReplaceName</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>m_pqleReplaceName</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>107</x>
+     <y>63</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>163</x>
+     <y>62</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_pqcbReplaceName</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>m_pqleReplaceName</receiver>
+   <slot>setFocus()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>104</x>
+     <y>75</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>163</x>
+     <y>76</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_pqcbReplaceMatchWith</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>m_pqleReplaceMatchWith</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>111</x>
+     <y>117</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>149</x>
+     <y>101</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_pqcbReplaceMatchWith</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>m_pqleReplaceMatchWith</receiver>
+   <slot>setFocus()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>99</x>
+     <y>112</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>157</x>
+     <y>114</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_pqcbInsertTheText</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>m_pqleInsertTheText</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>103</x>
+     <y>156</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>159</x>
+     <y>139</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_pqcbInsertTheText</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>m_pqleInsertTheText</receiver>
+   <slot>setFocus()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>95</x>
+     <y>151</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>162</x>
+     <y>153</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_pqcbInsertTheText</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>m_pqleInsertTheTextAtPos</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>43</x>
+     <y>143</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>557</x>
+     <y>146</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_pqcbInsertAtStart</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>m_pqleInsertAtStart</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>91</x>
+     <y>195</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>168</x>
+     <y>178</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_pqcbInsertAtStart</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>m_pqleInsertAtStart</receiver>
+   <slot>setFocus()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>80</x>
+     <y>188</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>163</x>
+     <y>190</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_pqcbInsertAtEnd</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>m_pqleInsertAtEnd</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>513</x>
+     <y>195</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>557</x>
+     <y>179</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_pqcbInsertAtEnd</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>m_pqleInsertAtEnd</receiver>
+   <slot>setFocus()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>492</x>
+     <y>189</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>545</x>
+     <y>191</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_pqcbRegExStartPos</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>m_pqleRegExStartPos</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>491</x>
+     <y>25</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>591</x>
+     <y>25</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_pqcbRegExStartPos</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>m_pqleRegExStartPos</receiver>
+   <slot>setFocus()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>490</x>
+     <y>35</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>566</x>
+     <y>38</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Resources/Icon.png</file>
+        <file>Resources/HelpAboutBanner.png</file>
+        <file>Resources/Licence.txt</file>
+        <file>Resources/Settings.png</file>
+        <file>Resources/Home.png</file>
+        <file>Resources/ShowHidden.png</file>
+        <file>Resources/CaseSensitive.png</file>
+
+        <file>Translations/qt_pt.qm</file>
+        <file>Translations/InviskaRename.pt_BR.qm</file>
+    </qresource>
+</RCC>
