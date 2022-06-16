@@ -1,8 +1,12 @@
-**About Inviska Rename**
+<div align="center">
+  <img src="InviskaRename/Resources/HelpAboutBanner.png" title="Inviska Rename" alt="Inviska Rename" />
+</div>
+
+# About Inviska Rename
 
 Inviska Rename is a batch file rename utility that allows you to give meaningful names to groups of files. It can be used for renaming music files from tags, renaming photos from Exif information, replacing photograph names like DSC04651.JPG with more useful names like "Spain Holiday - 154.jpg", and other renaming tasks.
 
-**Features**
+# Features
 
 Inviska Rename can perform the following operations:
 
@@ -24,3 +28,9 @@ Inviska Rename can perform the following operations:
 * Full Unicode support for all character sets.
 * Cross platform, running on Windows 7+, macOS 10.12+ and Linux.
 * Free open-source software released under the GPLv2+ licence.
+
+# Screenshots
+
+<div align="center">
+  <img src="Screenshots/Home.png" title="Screenshots Inviska Rename" alt="Screenshots Inviska Rename" />
+</div>
