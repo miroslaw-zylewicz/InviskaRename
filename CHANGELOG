@@ -1,7 +1,6 @@
-# Inviska Rename Changelog
+Inviska Rename Changelog
 
-**Version 11.0**
-
+Version 11.0
 - Added sorting by type and date - If you right click anywhere in the Current Name table, you will now be given the option to sort by Name, Type and Date Modified. Sort order is retained when you change directories, but defaults back to Name when the application is restarted. If you wish your sort order to be retained between sessions, check the "Save sort order between sessions" option under Preferences -> File List.
 - Added final result conflict detection - Before performing a rename, the software now checks if the operation will result in duplicate filenames. If conflicts are detected, the rename operation will not proceed and instead a list of conflicting filenames will be displayed.
 - Added intermediate conflict detection - Even if the final result does not produce conflicting filenames, there can be conflicts during the rename process, typically when renumbering files. Inviska Rename now simulates the rename process and checks for conflicts after each file rename. If no conflict is detected, the rename operation will continue normally, but if conflicts are detected the rename operation will be simulated again in reverse order. If the operation is valid in reverse order, it will perform the rename in reverse. This process is transparent to the user, and is practically instantaneous, even with 10K files, so it does not cause any degradation in performance.
@@ -10,8 +9,7 @@
 - Filename now left unchanged when no meta present - If you perform a rename operation using music or Exif meta data, and there is no meta data present in a file, the filename will now be left unchanged. This avoids filenames being left blank when no meta is present.
 - Works slightly better with Nemo - Nemo has a feature to launch your batch rename program when you select multiple files and click rename. Since Inviska Rename works with directories, rather than lists of files, it doesn't work well with this feature. However, it now works a bit better, so if you select a list of files in Nemo and click rename, Inviska Rename will at least open in the directory of the files.
 
-**Version 10.0**
-
+Version 10.0
 - Added regular expression based renaming - More advanced rename tasks can now be achieved via regular expressions.
 - Saved renames now save case-sensitvity - The state of the case sensitive compare setting (toolbar top right) is now saved with the rename settings, and will be restored when you load a saved rename. If you don't wish this setting to be saved you can disable this feature by unchecking "Save and restore case sensitivity with saved renames" in the Rename section of the Preferences dialog.
 - Saved renames now save active tab - The active rename settings tab will is now stored with saved renames, and the tab will be activated when you load a rename. This feature can be disabled by unchecking "Save and restore active tab with saved renames" in the Rename section of the Preferences dialog.
@@ -19,8 +17,7 @@
 - Adjusted row selection highlighting behaviour - The above change could lead to situations where it was hard to read the text. To compensate, the row selection behaviour has been changed so that rows in the Current Name table are always highlighted in the active widget selection colour and rows in the Preview table will always be highlighted in the inactive widget selection colour. This new behaviour feels more consistent in general since the selection colour used in the two tables is now constant.
 - Fixed Linux theme issues - This release bundles the libqgtk2 and libqgtk2style plugins so it should now use your GTK2 theme.
 
-**Version 9.0**
-
+Version 9.0
 - Added bookmarks menu - A bookmarks menu has been added so you can bookmark directories for easy access.
 - Changed save rename format - The format used to store saved renames has changed. Functionality has been included to load the old saved renames, so existing renames should load as normal.
 - Fixed issue with & and / in saved renames - Including an & or / character in the name of a saved rename would previously create problems, but this has now been addressed.
@@ -32,8 +29,7 @@
 - Moved credits to About dialog - The credits dialog has been removed and the credits are now in the redesign About dialog.
 - Updated to Qt 5.12.4 on all platforms - I've decided to stick with the Qt LTS releases from now on, unless there's a specific reason to use a non-LTS release. I'll switch to the next LTS release once the .2 update is out.
 
-**Version 8.0**
-
+Version 8.0
 - Added option to load all Exif Tags - You can now make all Exif tags listed in the File Properties available for insertion in the file name. Enabling this option is not recommended if you don't need the extra tags as it significantly increases the amount of time it takes to load Exif tags from files.
 - Added 35mm equivalent focal length - The 35mm equivalent focal length has been made available for insertion in the basic selection of Exif tags. This value is not typically encoded for full frame cameras, but for smaller sensor cameras it's usually the value you want.
 - Added option to specify tag separators - You can now specify the separator characters to use in date, time and fraction (e.g exposure time) tags. These separators will be used in all Exif, music and file attribute tags.
@@ -47,8 +43,7 @@
 - Added Windows 32bit build - A 32bit Windows build has been added for users still on 32bit operating systems.
 - Various internal changes - The code for reading and looking up tags has been rewritten and various other internal changes were made.
 
-**Version 7.0**
-
+Version 7.0
 - Added natural number sorting - Numbers without zero padding would previously appear out of order (1, 10, 2, 20) but they now appear correctly ordered (1, 2, 10, 20).
 - Added locale aware sorting - Non-English users may previously have found files to be listed in an unexpected order. Sorting is now locale aware so files should now be listed in an appropriate order for your language.
 - Added feature for adjusting numbering order - Users can now manually adjust the position of files in the table, thus changing the order for numbering purposes.
@@ -60,13 +55,11 @@
 - Dropped .deb, .rpm and .pkg.tar.xz packages - For various reasons I've decided to drop the traditional package formats and will move towards newer formats, like Flatpak.
 - Switched to Qt 5.12.2 on Linux - I had intended to continue doing Qt 5.6 builds until they fixed GTK theme emulation in Qt, but Qt 5.6 is growing increasingly unviable. The UI isn't rendering correctly on the latest releases of some distributions and more serious problems are developing, with the Qt 5.6.3 AppImage not running at all on Fedora 30. Official support has also ended for Qt 5.6, so it looks like time to move on. Unfortunately, this means GTK theme emulation no longer works as it is not implemented in Qt 5.7+.
 
-**Version 6.0**
-
+Version 6.0
 - Fixed rename performance issues - Changes made in version 5.0 caused rename operations to become extremely slow, taking a few seconds to rename a couple of hundred files. The problem was related to the new way in which file system watchers were handled during rename operations. The performance issues have been addressed, while also retaining the benefits introduced in version 5.0. Most rename operations should therefore be largely instantaneous.
 - Changed progress bar timing - The rename progress bar will now appear if the rename operation takes more than one second.
 
-**Version 5.0**
-
+Version 5.0
 - Added invalid character substitutions - Invalid characters (\/:*?"<>|) in meta tags would cause rename operations to fail, so a facility has been added to substitute these characters with an alternative character or string of your choice. By default similar Unicode characters are used to replace the invalid ASCII characters.
 - Added option to re-sort files after rename - By default files remain in the same table position after a rename operation, but an option has now been added to resort the files into alphabetical order.
 - Added option to disable confirmation - An option to disable the confirmation message before rename operations has been added.
@@ -90,8 +83,7 @@
 - Qt 5.6.3 and Qt 5.12.2 builds released for Linux - GTK theme emulation has still not been fixed in Qt 5.12.2, but versions built with Qt 5.6.3 are no longer rendering correctly on the latest Linux distributions (Ubuntu 18.10 and possibly others). As such, builds with both Qt 5.6.3 and Qt 5.12.2 have been released for Linux.
 - License changed to GPLv2+ - Changed all references to license from GPLv2 to GPLv2+, thus allowing the GPLv3 license to be used if that is preferred. The Arch package simply states GPL for licence, as this is used to denote GPLv2+ on Arch based distros.
 
-**Version 4.0**
-
+Version 4.0
 - Added sub-second Exif tag - The Exif sub-second value can now be inserted by using [$Ex-TimeSubSec]. For consistency the value is padded to three digits. It should be noted that most camera manufacturers do not encode a value for this field, with Canon and newer versions of iOS being the only known exceptions. If no sub-second value is encoded in the image 000 will be inserted.
 - Added option to open files when double clicked - A request was made to open files in the default application when they are double clicked. This feature has been added, but is disabled by default, and enabling it is not recommended. This is because, if the file is open in another application when you attempt to rename it, the rename operation can fail.
 - Added command line parameter to load saved renames - You can now load a saved renamed profiles at startup using the --loadren switch. For example, if you wanted to load a saved rename called MySavedRename you would use --loadren MySavedRename. If the saved rename profile contains spaces you must use quotes, e.g. --loadren "My Saved Rename".
@@ -104,8 +96,7 @@
 - Fixed Windows Computer bug - Previously, if you browsed to a drive from the Computer view, then went back/up, then tried to enter the same drive nothing would happen.
 - Switched to Qt 5.11.0 on Windows and Qt 5.11.2 on Mac - As a result of the change the minimum supported macOS version is now 10.11. The Mac version was originally supposed to use Qt 5.11.0, but a bug was present in Qt 5.11.0 and 5.11.1 so the release had to be delayed until it was fixed in Qt 5.11.2. Linux builds still use Qt 5.6.2 as GTK theme emulation is still not working in the latest Qt release.
 
-**Version 3.0**
-
+Version 3.0
 - Added renaming from music tags - Added support for renaming music files based on meta tags. Uses TagLib for reading tags, so all formats offered by TagLib are therefore supported (ID3v1 and ID3v2 for MP3 files, Ogg Vorbis comments and ID3 tags and Vorbis comments in FLAC, MPC, Speex, WavPack, TrueAudio, WAV, AIFF, MP4 and ASF files).
 - Added renaming from Exif tags - Added support for renaming digital photos based on Exif meta tags. Uses LibExif for reading tags.
 - Added renaming from file attributes - Added support for renaming based on file creation and modification dates.
@@ -121,8 +112,7 @@
 - Fixed Unity issue - There appears to be a long standing incompatibility between Unity and the Qt GTK+ style which prevents Qt applications from even starting. The program now detects when it is running on Unity and switches to the Fusion style so it runs correctly.
 - Switched to Qt 5.9.0 on Windows and Mac - Due to changes in the macOS SDK, Qt 5.6.2 no longer compiles, so changed to Qt 5.9.0 on Windows and Mac. The Linux builds still use Qt 5.6.2 because Qt 5.9.0 still does not correctly emulate the system GTK theme. The lack of GTK theme emulation in Qt 5.7+ has been acknowledged as a P1 issue by the Qt team, so will hopefully be fixed in the future.
 
-**Version 2.0**
-
+Version 2.0
 - Command line arguments now processed - Add files by dropping them onto the executable or specify files in the command line. If a file is specified, rather than a directory, the directory containing that file will be opened. If multiple directories/files are specified, the first valid location will be opened.
 - Added Clear All action to Renames menup - Action disables all rename settings and clears all text boxes.
 - Address bar given focus on startup - The address bar is now given focus on startup and the path present in the bar is highlighted. This allows you to immediately paste in a directory without having to click on the address bar.
@@ -132,6 +122,5 @@
 - Changed method to determine whether running in portable or install mode - On Windows and Mac the install version puts an install.sys file in the installation directory. If that is present in the application directory it runs in install mode, otherwise it runs in portable mode. On Linux it checks if the executable is in the /usr/bin/ directory, and if so it runs in install mode, otherwise it runs in portable mode.
 - Switched to Qt 5.6.2 - The qgtk2 plugin was removed from Qt 5.7.0, meaning applications would not use the system GTK theme. The response to bug report was that it was a known issue and would not be fixed. They also said there'd be a new qgtk3 plugin with 5.8.0, so I decided to wait for that before doing a Linux release. When 5.8.0 came out I found there are still GTK issues, so I switched to 5.6.2 while the issues are resolved.
 
-**Version 1.0**
-
+Version 1.0
 - Initial release - Built with Qt 5.7.0.
