@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="InviskaRename/Resources/HelpAboutBanner.png" title="Inviska Rename" alt="Inviska Rename" />
+  <img src="InviskaRename/Resources/HelpAboutBanner.png" title="Banner" alt="Banner" />
 </div>
 
 # About Inviska Rename
@@ -32,5 +32,5 @@ Inviska Rename can perform the following operations:
 # Screenshots
 
 <div align="center">
-  <img src="Screenshots/Home.png" title="Screenshots Inviska Rename" alt="Screenshots Inviska Rename" />
+  <img src="Screenshots/Home.png" title="Screenshots" alt="Screenshots" />
 </div>
