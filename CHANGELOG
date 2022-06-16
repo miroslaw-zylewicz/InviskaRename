@@ -1,1 +1,137 @@
+# Inviska Rename Changelog
 
+**Version 11.0**
+
+- Added sorting by type and date - If you right click anywhere in the Current Name table, you will now be given the option to sort by Name, Type and Date Modified. Sort order is retained when you change directories, but defaults back to Name when the application is restarted. If you wish your sort order to be retained between sessions, check the "Save sort order between sessions" option under Preferences -> File List.
+- Added final result conflict detection - Before performing a rename, the software now checks if the operation will result in duplicate filenames. If conflicts are detected, the rename operation will not proceed and instead a list of conflicting filenames will be displayed.
+- Added intermediate conflict detection - Even if the final result does not produce conflicting filenames, there can be conflicts during the rename process, typically when renumbering files. Inviska Rename now simulates the rename process and checks for conflicts after each file rename. If no conflict is detected, the rename operation will continue normally, but if conflicts are detected the rename operation will be simulated again in reverse order. If the operation is valid in reverse order, it will perform the rename in reverse. This process is transparent to the user, and is practically instantaneous, even with 10K files, so it does not cause any degradation in performance.
+- Added intermediate renaming - If a rename operation is found to cause conflicts when performed both forwards and backwards, Inviska Rename now uses intermediate renaming to avoid conflicts. Files are first renamed to an intermediate name, before being renamed to their final name. This intermediate renaming does cause a performance hit, since it doubles the number of file renames. However, intermediate renaming is only activated when necessary, and this is only under extremely rare circumstances, so it's unlikely you'll ever notice.
+- Fixed bug that caused tags not to load - A bug was introduced in version 9.0 that caused meta data not to load if you typed the tag manually, or if the tag was in a disabled box that was subsequently enabled. This bug is now fixed, so tag data will now load correctly.
+- Filename now left unchanged when no meta present - If you perform a rename operation using music or Exif meta data, and there is no meta data present in a file, the filename will now be left unchanged. This avoids filenames being left blank when no meta is present.
+- Works slightly better with Nemo - Nemo has a feature to launch your batch rename program when you select multiple files and click rename. Since Inviska Rename works with directories, rather than lists of files, it doesn't work well with this feature. However, it now works a bit better, so if you select a list of files in Nemo and click rename, Inviska Rename will at least open in the directory of the files.
+
+**Version 10.0**
+
+- Added regular expression based renaming - More advanced rename tasks can now be achieved via regular expressions.
+- Saved renames now save case-sensitvity - The state of the case sensitive compare setting (toolbar top right) is now saved with the rename settings, and will be restored when you load a saved rename. If you don't wish this setting to be saved you can disable this feature by unchecking "Save and restore case sensitivity with saved renames" in the Rename section of the Preferences dialog.
+- Saved renames now save active tab - The active rename settings tab will is now stored with saved renames, and the tab will be activated when you load a rename. This feature can be disabled by unchecking "Save and restore active tab with saved renames" in the Rename section of the Preferences dialog.
+- Fixed name change highlighting - When rows in the table were selected, items in the Preview table where not correctly coloured to indicate they would be renamed because the selection colour overrode the rename highlighting colour. This has been fixed, so files to be renamed are now correctly highlighted in your chosen colour even when selected in the table.
+- Adjusted row selection highlighting behaviour - The above change could lead to situations where it was hard to read the text. To compensate, the row selection behaviour has been changed so that rows in the Current Name table are always highlighted in the active widget selection colour and rows in the Preview table will always be highlighted in the inactive widget selection colour. This new behaviour feels more consistent in general since the selection colour used in the two tables is now constant.
+- Fixed Linux theme issues - This release bundles the libqgtk2 and libqgtk2style plugins so it should now use your GTK2 theme.
+
+**Version 9.0**
+
+- Added bookmarks menu - A bookmarks menu has been added so you can bookmark directories for easy access.
+- Changed save rename format - The format used to store saved renames has changed. Functionality has been included to load the old saved renames, so existing renames should load as normal.
+- Fixed issue with & and / in saved renames - Including an & or / character in the name of a saved rename would previously create problems, but this has now been addressed.
+- Fixed automatic zero fill bug - If you used automatic zero fill along with "Rename...Selected Items Only," the zero fill did not update when the number of selected items changed. This has now been fixed so the zero fill will be correctly adjusted.
+- Fixed issue loading tags - If the user inserted both Exif and Music tags it would cause tags of one type not to load. The program will now read both sets of tags so all tags will work correctly.
+- Fixed Mac icon - There was a problem with the .icns file that prevented it displaying, but this has been fixed.
+- Made saved renames case insensitive - The --loadren command line switch is now case insensitive so you don't have to get the case right for renames to load. Saved renames are also case insensitive so, if you save a rename with the same name but different case as an existing rename, you will be asked if you want to overwrite the existing rename.
+- Significant refactoring - The program has been reworked significantly internally but should function the same from the user's perspective. If you encounter any bugs please report them.
+- Moved credits to About dialog - The credits dialog has been removed and the credits are now in the redesign About dialog.
+- Updated to Qt 5.12.4 on all platforms - I've decided to stick with the Qt LTS releases from now on, unless there's a specific reason to use a non-LTS release. I'll switch to the next LTS release once the .2 update is out.
+
+**Version 8.0**
+
+- Added option to load all Exif Tags - You can now make all Exif tags listed in the File Properties available for insertion in the file name. Enabling this option is not recommended if you don't need the extra tags as it significantly increases the amount of time it takes to load Exif tags from files.
+- Added 35mm equivalent focal length - The 35mm equivalent focal length has been made available for insertion in the basic selection of Exif tags. This value is not typically encoded for full frame cameras, but for smaller sensor cameras it's usually the value you want.
+- Added option to specify tag separators - You can now specify the separator characters to use in date, time and fraction (e.g exposure time) tags. These separators will be used in all Exif, music and file attribute tags.
+- Added option to load saved rename on startup - You can now select one of your saved rename profiles to load on startup via the Startup section in the Preferences dialog. If you don't have any saved renames this option is deactivated.
+- Added option to restore previous rename settings - Another option has been added where you can restore your previous rename settings from the last session.
+- Added option to restore previous directory - You can now have the program start in the directory you previously had open. If this directory no longer exists the program will start in My Computer on Windows or your home/User directory on Linux and Mac.
+- Preferences dialog rearranged - To accommodate for new options, some of the settings have been relocated in the Preferences dialog and new sections have been added.
+- Some settings will need resetting - The section in which some settings are stored in the settings file has changed, so you will have to reset your start directory and sidebar settings.
+- Fixed issue with table rows not resizing for font - The table rows would not resize to accommodate for larger fonts, which would be particularly problematic if you changed the table font in the Preferences or if you use a large system font. This worked up to version 4.0, but it looks like I broke it in version 5.0. It has now been fixed.
+- Fixed back button issue - Fixed issue where the back button would not work if you pressed it after pressing the home button.
+- Added Windows 32bit build - A 32bit Windows build has been added for users still on 32bit operating systems.
+- Various internal changes - The code for reading and looking up tags has been rewritten and various other internal changes were made.
+
+**Version 7.0**
+
+- Added natural number sorting - Numbers without zero padding would previously appear out of order (1, 10, 2, 20) but they now appear correctly ordered (1, 2, 10, 20).
+- Added locale aware sorting - Non-English users may previously have found files to be listed in an unexpected order. Sorting is now locale aware so files should now be listed in an appropriate order for your language.
+- Added feature for adjusting numbering order - Users can now manually adjust the position of files in the table, thus changing the order for numbering purposes.
+- Fixed Exif tags not reading from Unicode files on Windows - Previously Exif information would not read from Unicode file paths on Windows, but this has now been fixed. This issue did not affect Linux or Mac.
+- Exif information is now only read from JPEG files - It seems that JPEG is the only image format that supports Exif, so we now only try to read Exif information from files with extension .jpg or .jpeg (upper or lower case).
+- Show/hide hidden files now hides system files - When hide hidden files is enabled system files are now also hidden.
+- Switched to AppImage - The Linux build is now distributed as an AppImage. I'll look to add a Flatpak in the future, and possibly a Snap. The AppImage has been tested to work on Linux Mint 18.0, 19.0 & 19.1, Ubuntu 16.04, 18.04 & 19.04, Debian 9.1.0, OpenSUSE 15 & Leap, Fedora 30, Manjaro and Antergos. Note that, after downloading, you will have to make the AppImage executable to run it.
+- Portable AppImage - A portable version of the AppImage is available which stores the settings in the application directory.
+- Dropped .deb, .rpm and .pkg.tar.xz packages - For various reasons I've decided to drop the traditional package formats and will move towards newer formats, like Flatpak.
+- Switched to Qt 5.12.2 on Linux - I had intended to continue doing Qt 5.6 builds until they fixed GTK theme emulation in Qt, but Qt 5.6 is growing increasingly unviable. The UI isn't rendering correctly on the latest releases of some distributions and more serious problems are developing, with the Qt 5.6.3 AppImage not running at all on Fedora 30. Official support has also ended for Qt 5.6, so it looks like time to move on. Unfortunately, this means GTK theme emulation no longer works as it is not implemented in Qt 5.7+.
+
+**Version 6.0**
+
+- Fixed rename performance issues - Changes made in version 5.0 caused rename operations to become extremely slow, taking a few seconds to rename a couple of hundred files. The problem was related to the new way in which file system watchers were handled during rename operations. The performance issues have been addressed, while also retaining the benefits introduced in version 5.0. Most rename operations should therefore be largely instantaneous.
+- Changed progress bar timing - The rename progress bar will now appear if the rename operation takes more than one second.
+
+**Version 5.0**
+
+- Added invalid character substitutions - Invalid characters (\/:*?"<>|) in meta tags would cause rename operations to fail, so a facility has been added to substitute these characters with an alternative character or string of your choice. By default similar Unicode characters are used to replace the invalid ASCII characters.
+- Added option to re-sort files after rename - By default files remain in the same table position after a rename operation, but an option has now been added to resort the files into alphabetical order.
+- Added option to disable confirmation - An option to disable the confirmation message before rename operations has been added.
+- Added option to keep settings after rename - An option to clear settings after a rename has been added to the Preferences. Users who wish for the current rename settings to be retained after the rename operation can uncheck this option.
+- Added rename progress bar - Renaming a large number of files on a network drive can be slow, causing the application to become unresponsive. A progress bar will now appear during longer rename jobs (> 3 seconds) to show that the job is still running.
+- Fixed issue reading music tags from Unicode files - A serious bug was found that meant tags would to fail to load from music files that contained Unicode characters in the filename. This has now been fixed, so tags should load correctly from all music files.
+- Fixed issue when renaming from tags - If you renamed some files without the use of meta tags, then attempted to rename them again, this time using meta tags, the tags would fail to load. This has now been fixed and tags will read correctly in all situations.
+- Fixed issue with Preview table not following system theme - The text and cell backgrounds in the Preview table would not follow the system theme, which was particularly problematic with dark themes. This has now been fixed.
+- Fixed various icon issues - Fixed issue where icons would disappear, issue that icons would not change if the file extension was changed, and issue where custom folder icons would be loaded after folders had been renamed, leading to slow refresh times.
+- Windows version is now 64bit - Previously Windows builds were 32bit, allowing them to run on both 32bit and 64bit Windows. With most people now on 64bit Windows we've changed to 64bit only. The Linux and Mac builds were already 64bit only.
+- Empty drives are no longer shown in Windows - Empty drives (e.g. memory card readers with no memory card inserted) are no longer shown under Computer on Windows. This is actually a Qt 5.12 change - "On Windows, QDir::drives() no longer returns drives whose media were ejected." There's no option to revert this change to the old behaviour of showing empty drives. Not sure I'm happy about that.
+- Disabling auto-refresh no longer disables tag refreshing - Previously, if you disabled the auto-directory refresh, tag refreshing would also be disabled. This has been changed, so even if auto-refresh is disabled meta tags will still be reloaded if they are modified.
+- Reordered Tags->Exif menu - Moved the date and time related tags to the top of the menu as these are likely the most commonly used.
+- Tag time format changes - Changed the separator used in time tags from semi-colon to dot, since semi-colon made the time hard to read. This affects [$Ex-DateTime], [$Ex-Time], [$At-CreatedDateTime], [$At-CreatedTime], [$At-ModifiedDateTime] and [$At-ModifiedTimed].
+- Better file system watcher handling - Files and directories are now removed from the file system watcher before a rename operation and re-added after the rename, thus avoiding unnecessary refreshes. An issue was also resolved where, under some circumstances, files would not be added to the watcher after a rename operation.
+- Various internal changes - Various other internal changes were made that don't modify the application's functionality. Testing reveals no problems, but if you encounter any bugs please report them.
+- Linux release changes - After discovering lintian, rpmlint and namcap, I made various changes to resolve policy violations, specifically: added changelog and copyright files to all packages, specified correct Section in deb package, changed BuildArch to ExclusiveArch in rpm spec, added detailed description to deb and rpm packages, added execution code to .desktop Exec field, renamed .desktop file to com.inviska.InviskaRename.desktop, compiled with PIC and RELRO, stripped symbols from executable, stopped statically linking zlib, and fixed incorrect file permissions. There are still improvements to be made on the Linux front, and some distros are still reporting the licence as propitiatory. I'm thinking of dropping the .deb, .rpm and .pkg.tar.xz packages entirely and switching to FlatPaks and Snaps.
+- Application info defined on Mac - Info.plist is now defined manually as the version generated by Qt lacked certain information.
+- Application info defined on Windows - While looking into the above problem I noticed I hadn't defined some fields for Windows, such as name, version and copyright. This has been corrected, so Task Manager will now show the application name rather than the executable.
+- Switched to Qt 5.12.2 on Windows and Mac - This changes the minimum supported macOS version to 10.12.
+- Qt 5.6.3 and Qt 5.12.2 builds released for Linux - GTK theme emulation has still not been fixed in Qt 5.12.2, but versions built with Qt 5.6.3 are no longer rendering correctly on the latest Linux distributions (Ubuntu 18.10 and possibly others). As such, builds with both Qt 5.6.3 and Qt 5.12.2 have been released for Linux.
+- License changed to GPLv2+ - Changed all references to license from GPLv2 to GPLv2+, thus allowing the GPLv3 license to be used if that is preferred. The Arch package simply states GPL for licence, as this is used to denote GPLv2+ on Arch based distros.
+
+**Version 4.0**
+
+- Added sub-second Exif tag - The Exif sub-second value can now be inserted by using [$Ex-TimeSubSec]. For consistency the value is padded to three digits. It should be noted that most camera manufacturers do not encode a value for this field, with Canon and newer versions of iOS being the only known exceptions. If no sub-second value is encoded in the image 000 will be inserted.
+- Added option to open files when double clicked - A request was made to open files in the default application when they are double clicked. This feature has been added, but is disabled by default, and enabling it is not recommended. This is because, if the file is open in another application when you attempt to rename it, the rename operation can fail.
+- Added command line parameter to load saved renames - You can now load a saved renamed profiles at startup using the --loadren switch. For example, if you wanted to load a saved rename called MySavedRename you would use --loadren MySavedRename. If the saved rename profile contains spaces you must use quotes, e.g. --loadren "My Saved Rename".
+- Added a home button - A home button has been added to the toolbar which returns you to your start directory.
+- Added individual file rename - Individual files and folders can now be renamed by right clicking the file in the Current Name list and selecting Rename File/Folder from the content menu or by selecting the file in the Current Name list and pressing F2.
+- Moved file properties to context menu - Previously you could view file properties, including music and Exif tags, by double clicking on the file. This is now achieved by right clicking on a file in the Current Name list and clicking "View File Properties & Tags..."
+- Updated latest version check - Previously it was required that the Windows, Mac and Linux versions all be on the same version. In situations where improvements effect only one platform, it would be better to do a minor release just for that platform. This is now possible with the new version check.
+- Improved directory load times - The program now uses generic icons for folders and Windows executable files, which significantly improves directory load times.
+- Using one QFileSystemWatcher - Removed second QFileSystemWatcher that was required to workaround a now fixed Qt bug.
+- Fixed Windows Computer bug - Previously, if you browsed to a drive from the Computer view, then went back/up, then tried to enter the same drive nothing would happen.
+- Switched to Qt 5.11.0 on Windows and Qt 5.11.2 on Mac - As a result of the change the minimum supported macOS version is now 10.11. The Mac version was originally supposed to use Qt 5.11.0, but a bug was present in Qt 5.11.0 and 5.11.1 so the release had to be delayed until it was fixed in Qt 5.11.2. Linux builds still use Qt 5.6.2 as GTK theme emulation is still not working in the latest Qt release.
+
+**Version 3.0**
+
+- Added renaming from music tags - Added support for renaming music files based on meta tags. Uses TagLib for reading tags, so all formats offered by TagLib are therefore supported (ID3v1 and ID3v2 for MP3 files, Ogg Vorbis comments and ID3 tags and Vorbis comments in FLAC, MPC, Speex, WavPack, TrueAudio, WAV, AIFF, MP4 and ASF files).
+- Added renaming from Exif tags - Added support for renaming digital photos based on Exif meta tags. Uses LibExif for reading tags.
+- Added renaming from file attributes - Added support for renaming based on file creation and modification dates.
+- Added show/hide hidden files - Hides hidden files by default. Hidden files will not be included in rename operations when hidden.
+- Added case-sensitive option - Makes string comparisons case-sensitive in "Replace The Text" and "Files With Extension" boxes.
+- Added automatic zero fill - Sets the numbering zero fill appropriately for the number of files being renamed.
+- Added window position check - Program now checks the window is on screen at start up, and repositions it if it isn't.
+- Changed rename save format - Saved renames are now saved as a string rather than a QVarient, which allows settings to be easily added. This unfortunately means you'll have to recreate your current saved renames.
+- Changed start directory - Made home directory the default start directory on Linux, and User directory the default on macOS.
+- Fixed initial directory read bug - Setting the start directory to default QDir directory would result in the directory not being populated.
+- Fixed ampersand in Renames menu - Ampersand characters were not being displayed in saved renames.
+- Fixed icon on Linux - Icon now set in program after finding that some desktop environments don't use the icon from the .desktop file.
+- Fixed Unity issue - There appears to be a long standing incompatibility between Unity and the Qt GTK+ style which prevents Qt applications from even starting. The program now detects when it is running on Unity and switches to the Fusion style so it runs correctly.
+- Switched to Qt 5.9.0 on Windows and Mac - Due to changes in the macOS SDK, Qt 5.6.2 no longer compiles, so changed to Qt 5.9.0 on Windows and Mac. The Linux builds still use Qt 5.6.2 because Qt 5.9.0 still does not correctly emulate the system GTK theme. The lack of GTK theme emulation in Qt 5.7+ has been acknowledged as a P1 issue by the Qt team, so will hopefully be fixed in the future.
+
+**Version 2.0**
+
+- Command line arguments now processed - Add files by dropping them onto the executable or specify files in the command line. If a file is specified, rather than a directory, the directory containing that file will be opened. If multiple directories/files are specified, the first valid location will be opened.
+- Added Clear All action to Renames menup - Action disables all rename settings and clears all text boxes.
+- Address bar given focus on startup - The address bar is now given focus on startup and the path present in the bar is highlighted. This allows you to immediately paste in a directory without having to click on the address bar.
+- Fixed preferences - Just before 1.0 was released I changed the preferences dialog and broke a number of settings. These are now fixed.
+- Fixed issue when ending a filename with a space - Ending a filename with a space under Windows causes the file to become inaccessible, e.g. "filename.ext " or "noext " would both make the file inaccessible. All spaces are therefore stripped from the end of the name before the rename action is performed. In Mac/Linux, ending a file name with spaces is valid, but spaces are still stripped on those editions to avoid any issues when copying the file to a Windows system.
+- Fixed issue when adding a '.' to a filename without an extension - If you added a '.' to a filename without an extension, and then removed the '.' character, the '.' would remain because the program would start processing the file as though it had an extension. This has now been fixed and removing the '.' will work as expected.
+- Changed method to determine whether running in portable or install mode - On Windows and Mac the install version puts an install.sys file in the installation directory. If that is present in the application directory it runs in install mode, otherwise it runs in portable mode. On Linux it checks if the executable is in the /usr/bin/ directory, and if so it runs in install mode, otherwise it runs in portable mode.
+- Switched to Qt 5.6.2 - The qgtk2 plugin was removed from Qt 5.7.0, meaning applications would not use the system GTK theme. The response to bug report was that it was a known issue and would not be fixed. They also said there'd be a new qgtk3 plugin with 5.8.0, so I decided to wait for that before doing a Linux release. When 5.8.0 came out I found there are still GTK issues, so I switched to 5.6.2 while the issues are resolved.
+
+**Version 1.0**
+
+- Initial release - Built with Qt 5.7.0.
