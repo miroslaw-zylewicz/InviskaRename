@@ -87,6 +87,7 @@ void IUIMainWindow::PopulateLanguageList(QComboBox* pqcboLanguages)
 {
     pqcboLanguages->addItem(tr("Default"), "");
     pqcboLanguages->addItem("English", "en_GB");
+    pqcboLanguages->addItem("Polski", "pl_PL");
     pqcboLanguages->addItem("Português Brasileiro", "pt_BR");
 }
 
