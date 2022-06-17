@@ -126,6 +126,7 @@ RESOURCES += \
     Resources.qrc
 
 TRANSLATIONS += \
+    ./Translations/InviskaRename.pl_PL.ts
     ./Translations/InviskaRename.pt_BR.ts
 
 include(../Common/Inviska.pri)
