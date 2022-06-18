@@ -32,5 +32,5 @@ Inviska Rename can perform the following operations:
 # Screenshots
 
 <div align="center">
-  <img src="Screenshots/Home.png" title="Screenshots" alt="Screenshots" />
+  <img src="Screenshots/InviskaRenameWin.png" title="Screenshots" alt="Screenshots" />
 </div>
