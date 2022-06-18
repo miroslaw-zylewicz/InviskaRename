@@ -199,7 +199,6 @@ void IUIMenuBar::SetCaseSensitive(const bool kbCaseSensitive)
 
 QString IUIMenuBar::GetCreditsTranslations()
 {
-    return "Polski - Mirosław Żylewicz";
     return "Português Brasileiro - Claudio Mantovani Vieira";
 }
 
